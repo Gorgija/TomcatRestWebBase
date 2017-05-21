@@ -6,6 +6,8 @@
 package mk.com;
 
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -19,6 +21,7 @@ import javax.ws.rs.core.Response;
 @Path("base")
 public class BaseEndpoint {
     
+    ExecutorService es = Executors.newFixedThreadPool(10);
     
     @GET
     public Response ping() {

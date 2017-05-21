@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="js/libs/tether/css/tether.min.css" rel="stylesheet" type="text/css"/>
+        <link href="js/libs/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <h1 class="h1">With Bootstrap initialized</h1>
+                    <form id="test">
+                        <label for="resttest">Test Rest Endpoint:</label>
+                        <input type="text" id="resttest" size="50" />
+                        <input type="submit" />
+                    </form>
+                    <div id="result">
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <script src="js/libs/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="js/libs/tether/js/tether.min.js" type="text/javascript"></script>
+        <script src="js/libs/twitter-bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded",function(evt) {
+                test.addEventListener("submit",function(evt) {
+                    evt.preventDefault();
+                    fetch(window.location.pathname + "resources/" + resttest.value)
+                            .then(response=>{return response.text()})
+                            .then(res => result.textContent= res );
+                });
+            });
+        </script>
+    </body>
+</html>
